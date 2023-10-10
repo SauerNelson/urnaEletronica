@@ -1,22 +1,20 @@
-// Estrutura de repetição: do-while (faça-enquanto)
+function urnaEletronica() {
+    // Aqui vai todo o codigo do programa... 
 
-let contador = 0
-do {
-    console.log('Instrução')
-    contador += 1;
-} while (contador <= 10)
-
-// Estrutura de repetição: while (enquanto)
-
-while (opcao !== 0) {
-    console.log('Instrução1')
-    console.log('Instrução2')
-    console.log('Instrução3')
-    console.log('Instrução4')
-    console.log('Instrução5')
-    console.log('Instrução6')
-    console.log('Instrução7')
-    console.log('Instrução8')
-    console.log('Instrução9')
-    console.log('Instrução10')
+    console.log('Iniciando o Programa');
+    
+    let totalVotosCandidato1 = 0;
+    totalVotosCandidato2 = 0;
+    totalVotosCandidato3 = 0;
+    totalVotosBranco = 0;
+    totalVotosNulo = 0;
 }
+
+
+
+do { 
+    prompt('Escreva o seu voto aqui')
+    //instruções
+
+} while (condicao);
+
