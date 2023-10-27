@@ -1,3 +1,10 @@
+function dataHoraAtual() {
+    const dataHora = new Date();
+
+    
+   
+
+}
 function urnaEletronica() { 
 
     confirm('Você deseja iniciar o processo de votação?')
@@ -22,6 +29,7 @@ function urnaEletronica() {
     let senhaMesario;
     let encerrarVotação;
     let nomeCandidatos;
+    let hora
 
     console.log('Início do programa');
 
@@ -164,4 +172,8 @@ function urnaEletronica() {
         console.log('Não houve ganhador (empate entre dois ou mais candidatos).');
     }
     
+    dataHoraFinal = dataHoraAtual();
+
+    console.log(`Data/hora de início da votação: ${dataHoraInicial}`);
+    console.log(`Data/hora de encerramento da votação: ${dataHoraFinal}`);
 }
