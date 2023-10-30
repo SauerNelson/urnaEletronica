@@ -1,9 +1,27 @@
+function verificaUrnaAtual() {
+
+    fetch('urnaEletronica.js')
+    .then(response => response.text())
+    .then(response => CryptoJS.SHA256(response).toString())
+    .then(hashUrnaAtual => {
+        fetch('hashValido')
+        .then(response => response.text())
+        .then(hashValido => {
+            if (hashUrnaAtual === hashValido)
+            console.log('Urna verificada, código integro.')
+        } else {
+            console.log('URNA ADULTERADA!!! HASHS NÃO CONFERE!>');
+            console.log(`HASH DA URNA : ${hashUrnaAtual}`);
+            console.log(`HASH ESPERADO: ${hashValido}`);
+
+        })
+    });
+}
+
+
+
 function dataHoraAtual() {
     const dataHora = new Date();
-
-    
-   
-
 }
 function urnaEletronica() { 
 
