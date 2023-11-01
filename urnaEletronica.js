@@ -1,15 +1,20 @@
-function verificaUrnaAtual() {
+async function verificaUrnaAtual() {
 
-    fetch('urnaEletronica.js')
-    .then(response => response.text())
-    .then(response => CryptoJS.SHA256(response).toString())
-    .then(hashUrnaAtual => {
-        fetch('hashValido')
+    let hasUrnaAtual;
+    let hashValido;
+await fetch('urnaEletronica.js')
+        .then(response => response.text())
+        .then(response => CryptoJS.SHA256(response).toString())
+        .then(response => 
+    
+await  fetch('hashValido')
         .then(response => response.text())
         .then(hashValido => {
+            return
             if (hashUrnaAtual === hashValido)
             console.log('Urna verificada, código integro.')
-        } else {
+           }else {
+            
             console.log('URNA ADULTERADA!!! HASHS NÃO CONFERE!>');
             console.log(`HASH DA URNA : ${hashUrnaAtual}`);
             console.log(`HASH ESPERADO: ${hashValido}`);
@@ -23,6 +28,13 @@ function verificaUrnaAtual() {
 function dataHoraAtual() {
     const dataHora = new Date();
 }
+
+async function audioConfirmacao() {
+    const audio = new Audio('./confirmacao.mp3');
+    await audio.play();
+}
+
+
 function urnaEletronica() { 
 
     confirm('Você deseja iniciar o processo de votação?')
@@ -133,13 +145,16 @@ function urnaEletronica() {
 
             if (voto === 1) {
                 votosCandidato1++;
+                await audio.play();
             } else if (voto === 2) {
                 votosCandidato2++;
+                await audio.play();
             } else if (voto === 3) {
                 votosCandidato3++;
+                await audio.play();
             } else if (voto === 5) {
                 votosBrancos++;
-
+                await audio.play();
             } else if (voto === encerrarVotação) {
 
                encerrarVotação = prompt('Deseja REALMENTE encerrar a votação? Digite [S] para Sim ou [N] para Não').charAt(0).toUpperCase();
